@@ -28,7 +28,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "LucianoLima00\\GridView\\GridViewServiceProvider"
+                "Lucianolima00\\GridView\\GridViewServiceProvider"
             ]
         }
     },
