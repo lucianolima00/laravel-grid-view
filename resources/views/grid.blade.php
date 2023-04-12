@@ -39,9 +39,10 @@
     <div class="card-body">
         <table class="table @if($tableBordered) table-bordered @endif @if($tableStriped) table-striped @endif @if($tableHover) table-hover @endif @if($tableSmall) table-sm @endif">
             <thead>
-                @if ($countColumn)
                 <tr>
+                    @if ($countColumn)
                     <th width="5%">#</th>
+                    @endif
                     @foreach($columnObjects as $column_obj)
                         <th {!! $column_obj->buildHtmlAttributes() !!}>
 
@@ -63,11 +64,12 @@
                         </th>
                     @endforeach
                 </tr>
-                @endif
                 @if ($useFilters)
                     <tr>
                         <form action="{{ $filtersFormAction }}" method="get" id="grid_view_filters_form">
+                            @if ($countColumn)
                             <td></td>
+                            @endif
                             @foreach($columnObjects as $column_obj)
                                 <td>
                                     @if($column_obj instanceof \Lucianolima00\GridView\Columns\CheckboxColumn)
