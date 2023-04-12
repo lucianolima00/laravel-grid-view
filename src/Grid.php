@@ -188,6 +188,7 @@ class Grid
 
         return view('grid_view::grid', [
             'columnObjects' => $this->columnObjects,
+            'countColumn' => $this->countColumn,
             'useFilters' => $this->useFilters,
             'paginator' => $this->paginator,
             'title' => $this->title,

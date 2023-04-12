@@ -1,5 +1,8 @@
 ### CHANGE LOG:
 
+**1.0.13 April 12, 2023:**
+- BUG: countColumn undefined
+
 **1.0.12 April 12, 2023:**
 - Add custom class and style to filter buttons
 - Options to show count column
