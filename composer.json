@@ -22,7 +22,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Itstructure\\GridView\\": "src/"
+            "Lucianolima00\\GridView\\": "src/"
         }
     },
     "extra": {

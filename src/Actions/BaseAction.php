@@ -1,13 +1,13 @@
 <?php
 
-namespace Itstructure\GridView\Actions;
+namespace Lucianolima00\GridView\Actions;
 
 use Closure;
-use Itstructure\GridView\Traits\{Configurable, Attributable};
+use Lucianolima00\GridView\Traits\{Configurable, Attributable};
 
 /**
  * Class BaseAction.
- * @package Itstructure\GridView\Actions
+ * @package Lucianolima00\GridView\Actions
  *
  * @property string $url
  */

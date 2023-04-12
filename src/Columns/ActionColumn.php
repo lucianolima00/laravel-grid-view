@@ -1,15 +1,15 @@
 <?php
 
-namespace Itstructure\GridView\Columns;
+namespace Lucianolima00\GridView\Columns;
 
 use Closure;
-use Itstructure\GridView\Filters\StubFilter;
-use Itstructure\GridView\Actions\{BaseAction, View, Edit, Delete};
-use Itstructure\GridView\Traits\Configurable;
+use Lucianolima00\GridView\Filters\StubFilter;
+use Lucianolima00\GridView\Actions\{BaseAction, View, Edit, Delete};
+use Lucianolima00\GridView\Traits\Configurable;
 
 /**
  * Class ActionColumn.
- * @package Itstructure\GridView\Columns
+ * @package Lucianolima00\GridView\Columns
  */
 class ActionColumn extends BaseColumn
 {

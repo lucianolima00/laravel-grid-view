@@ -1,11 +1,11 @@
 <?php
-namespace Itstructure\GridView\Traits;
+namespace Lucianolima00\GridView\Traits;
 
-use Itstructure\GridView\Helpers\HtmlHelper;
+use Lucianolima00\GridView\Helpers\HtmlHelper;
 
 /**
  * Class Attributable
- * @package Itstructure\GridView\Traits
+ * @package Lucianolima00\GridView\Traits
  */
 trait Attributable
 {

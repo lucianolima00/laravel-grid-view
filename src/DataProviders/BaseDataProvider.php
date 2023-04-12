@@ -1,13 +1,13 @@
 <?php
 
-namespace Itstructure\GridView\DataProviders;
+namespace Lucianolima00\GridView\DataProviders;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 
 /**
  * Class BaseDataProvider
- * @package Itstructure\GridView\DataProviders
+ * @package Lucianolima00\GridView\DataProviders
  */
 abstract class BaseDataProvider
 {

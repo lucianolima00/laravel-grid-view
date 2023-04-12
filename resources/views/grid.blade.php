@@ -1,5 +1,5 @@
 @php
-    /** @var \Itstructure\GridView\Columns\BaseColumn[] $columnObjects */
+    /** @var \Lucianolima00\GridView\Columns\BaseColumn[] $columnObjects */
     /** @var \Illuminate\Pagination\LengthAwarePaginator $paginator */
     /** @var boolean $useFilters */
     $checkboxesExist = false;
@@ -45,10 +45,10 @@
                     @foreach($columnObjects as $column_obj)
                         <th {!! $column_obj->buildHtmlAttributes() !!}>
 
-                            @if($column_obj->getSort() === false || $column_obj instanceof \Itstructure\GridView\Columns\ActionColumn)
+                            @if($column_obj->getSort() === false || $column_obj instanceof \Lucianolima00\GridView\Columns\ActionColumn)
                                 {{ $column_obj->getLabel() }}
 
-                            @elseif($column_obj instanceof \Itstructure\GridView\Columns\CheckboxColumn)
+                            @elseif($column_obj instanceof \Lucianolima00\GridView\Columns\CheckboxColumn)
                                 @php($checkboxesExist = true)
                                 @if($useFilters)
                                     {{ $column_obj->getLabel() }}
@@ -57,7 +57,7 @@
                                 @endif
 
                             @else
-                                <a href="{{ \Itstructure\GridView\Helpers\SortHelper::getSortableLink(request(), $column_obj) }}">{{ $column_obj->getLabel() }}</a>
+                                <a href="{{ \Lucianolima00\GridView\Helpers\SortHelper::getSortableLink(request(), $column_obj) }}">{{ $column_obj->getLabel() }}</a>
                             @endif
 
                         </th>
@@ -70,7 +70,7 @@
                             <td></td>
                             @foreach($columnObjects as $column_obj)
                                 <td>
-                                    @if($column_obj instanceof \Itstructure\GridView\Columns\CheckboxColumn)
+                                    @if($column_obj instanceof \Lucianolima00\GridView\Columns\CheckboxColumn)
                                         <input type="checkbox" id="grid_view_checkbox_main" class="form-control form-control-sm" @if($paginator->count() == 0) disabled="disabled" @endif />
                                     @else
                                         {!! $column_obj->getFilter()->render() !!}

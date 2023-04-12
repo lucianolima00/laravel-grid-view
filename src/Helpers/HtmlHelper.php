@@ -1,9 +1,9 @@
 <?php
-namespace Itstructure\GridView\Helpers;
+namespace Lucianolima00\GridView\Helpers;
 
 /**
  * Class HtmlHelper
- * @package Itstructure\GridView\Helpers
+ * @package Lucianolima00\GridView\Helpers
  */
 class HtmlHelper
 {

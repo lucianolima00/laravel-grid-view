@@ -1,14 +1,14 @@
 <?php
 
-namespace Itstructure\GridView\Helpers;
+namespace Lucianolima00\GridView\Helpers;
 
-use Itstructure\GridView\Columns\ActionColumn;
-use Itstructure\GridView\Columns\BaseColumn;
+use Lucianolima00\GridView\Columns\ActionColumn;
+use Lucianolima00\GridView\Columns\BaseColumn;
 use Illuminate\Http\Request;
 
 /**
  * Class SortHelper
- * @package Itstructure\GridView\Helpers
+ * @package Lucianolima00\GridView\Helpers
  */
 class SortHelper
 {

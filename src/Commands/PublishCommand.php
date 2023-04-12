@@ -1,14 +1,14 @@
 <?php
 
-namespace Itstructure\GridView\Commands;
+namespace Lucianolima00\GridView\Commands;
 
 use Illuminate\Console\Command;
-use Itstructure\GridView\GridViewServiceProvider;
+use Lucianolima00\GridView\GridViewServiceProvider;
 
 /**
  * Class PublishCommand
  *
- * @package Itstructure\GridView\Commands
+ * @package Lucianolima00\GridView\Commands
  *
  * @author Andrey Girnik <girnikandrey@gmail.com>
  */

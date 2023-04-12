@@ -1,10 +1,10 @@
 <?php
 
-namespace Itstructure\GridView\Filters;
+namespace Lucianolima00\GridView\Filters;
 
 /**
  * Class DropdownFilter.
- * @package Itstructure\GridView\Filters
+ * @package Lucianolima00\GridView\Filters
  */
 class DropdownFilter extends BaseFilter
 {

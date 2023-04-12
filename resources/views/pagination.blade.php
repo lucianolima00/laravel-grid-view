@@ -14,7 +14,7 @@
                 </li>
             @else
                 <li class="page-item">
-                    <a class="page-link" href="{{ \Itstructure\GridView\Helpers\UrlSliderHelper::previousPageUrl(request(), $paginator) }}">&laquo;</a>
+                    <a class="page-link" href="{{ \Lucianolima00\GridView\Helpers\UrlSliderHelper::previousPageUrl(request(), $paginator) }}">&laquo;</a>
                 </li>
             @endif
 
@@ -26,7 +26,7 @@
                         @if ($page == $paginator->currentPage())
                             <li class="page-item active"><span class="page-link">{{ $page }}</span></li>
                         @else
-                            <li class="page-item"><a class="page-link" href="{{ \Itstructure\GridView\Helpers\UrlSliderHelper::toPageUrl(request(), $paginator, $page) }}">{{ $page }}</a></li>
+                            <li class="page-item"><a class="page-link" href="{{ \Lucianolima00\GridView\Helpers\UrlSliderHelper::toPageUrl(request(), $paginator, $page) }}">{{ $page }}</a></li>
                         @endif
                     @endforeach
 
@@ -38,7 +38,7 @@
 
             @if ($paginator->hasMorePages())
                 <li class="page-item">
-                    <a class="page-link" href="{{ \Itstructure\GridView\Helpers\UrlSliderHelper::nextPageUrl(request(), $paginator) }}">&raquo;</a>
+                    <a class="page-link" href="{{ \Lucianolima00\GridView\Helpers\UrlSliderHelper::nextPageUrl(request(), $paginator) }}">&raquo;</a>
                 </li>
             @else
                 <li class="page-item disabled">

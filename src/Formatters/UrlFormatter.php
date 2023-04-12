@@ -1,10 +1,10 @@
 <?php
 
-namespace Itstructure\GridView\Formatters;
+namespace Lucianolima00\GridView\Formatters;
 
 /**
  * Class UrlFormatter
- * @package Itstructure\GridView\Formatters
+ * @package Lucianolima00\GridView\Formatters
  */
 class UrlFormatter extends BaseFormatter
 {

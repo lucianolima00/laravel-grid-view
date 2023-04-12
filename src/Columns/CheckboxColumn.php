@@ -1,13 +1,13 @@
 <?php
 
-namespace Itstructure\GridView\Columns;
+namespace Lucianolima00\GridView\Columns;
 
-use Itstructure\GridView\Filters\StubFilter;
-use Itstructure\GridView\Traits\Configurable;
+use Lucianolima00\GridView\Filters\StubFilter;
+use Lucianolima00\GridView\Traits\Configurable;
 
 /**
  * Class CheckboxColumn.
- * @package Itstructure\GridView\Columns
+ * @package Lucianolima00\GridView\Columns
  */
 class CheckboxColumn extends BaseColumn
 {

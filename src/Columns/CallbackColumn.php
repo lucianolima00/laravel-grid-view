@@ -1,10 +1,10 @@
 <?php
 
-namespace Itstructure\GridView\Columns;
+namespace Lucianolima00\GridView\Columns;
 
 /**
  * Class CallbackColumn.
- * @package Itstructure\GridView\Columns
+ * @package Lucianolima00\GridView\Columns
  */
 class CallbackColumn extends BaseColumn
 {

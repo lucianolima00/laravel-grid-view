@@ -1,13 +1,13 @@
 <?php
 
-namespace Itstructure\GridView\Formatters;
+namespace Lucianolima00\GridView\Formatters;
 
-use Itstructure\GridView\Interfaces\Formattable;
-use Itstructure\GridView\Traits\{Configurable, Attributable};
+use Lucianolima00\GridView\Interfaces\Formattable;
+use Lucianolima00\GridView\Traits\{Configurable, Attributable};
 
 /**
  * Class BaseFormatter
- * @package Itstructure\GridView\Formatters
+ * @package Lucianolima00\GridView\Formatters
  */
 abstract class BaseFormatter implements Formattable
 {

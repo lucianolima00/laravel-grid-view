@@ -1,12 +1,12 @@
 <?php
 
-namespace Itstructure\GridView\Traits;
+namespace Lucianolima00\GridView\Traits;
 
 use ReflectionClass;
 
 /**
  * Class Configurable
- * @package Itstructure\GridView\Traits
+ * @package Lucianolima00\GridView\Traits
  */
 trait Configurable
 {

@@ -1,12 +1,12 @@
 <?php
 
-namespace Itstructure\GridView\Filters;
+namespace Lucianolima00\GridView\Filters;
 
-use Itstructure\GridView\Traits\Configurable;
+use Lucianolima00\GridView\Traits\Configurable;
 
 /**
  * Class BaseFilter.
- * @package Itstructure\GridView\Filters
+ * @package Lucianolima00\GridView\Filters
  */
 abstract class BaseFilter
 {

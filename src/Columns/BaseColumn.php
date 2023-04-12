@@ -1,16 +1,16 @@
 <?php
 
-namespace Itstructure\GridView\Columns;
+namespace Lucianolima00\GridView\Columns;
 
 use Exception;
-use Itstructure\GridView\Filters\{BaseFilter, StubFilter, TextFilter};
-use Itstructure\GridView\Formatters\{HtmlFormatter, ImageFormatter, TextFormatter, UrlFormatter};
-use Itstructure\GridView\Interfaces\Formattable;
-use Itstructure\GridView\Traits\{Configurable, Attributable};
+use Lucianolima00\GridView\Filters\{BaseFilter, StubFilter, TextFilter};
+use Lucianolima00\GridView\Formatters\{HtmlFormatter, ImageFormatter, TextFormatter, UrlFormatter};
+use Lucianolima00\GridView\Interfaces\Formattable;
+use Lucianolima00\GridView\Traits\{Configurable, Attributable};
 
 /**
  * Class BaseColumn
- * @package Itstructure\GridView\Columns
+ * @package Lucianolima00\GridView\Columns
  */
 abstract class BaseColumn
 {

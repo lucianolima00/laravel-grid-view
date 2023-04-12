@@ -1,18 +1,18 @@
 <?php
 
-namespace Itstructure\GridView;
+namespace Lucianolima00\GridView;
 
 use Closure;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
-use Itstructure\GridView\Columns\{BaseColumn, CallbackColumn, DefaultColumn};
-use Itstructure\GridView\DataProviders\{BaseDataProvider, EloquentDataProvider};
-use Itstructure\GridView\Traits\Configurable;
+use Lucianolima00\GridView\Columns\{BaseColumn, CallbackColumn, DefaultColumn};
+use Lucianolima00\GridView\DataProviders\{BaseDataProvider, EloquentDataProvider};
+use Lucianolima00\GridView\Traits\Configurable;
 
 /**
  * Class Grid
- * @package Itstructure\GridView
+ * @package Lucianolima00\GridView
  */
 class Grid
 {

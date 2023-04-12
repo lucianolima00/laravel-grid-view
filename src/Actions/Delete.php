@@ -1,10 +1,10 @@
 <?php
 
-namespace Itstructure\GridView\Actions;
+namespace Lucianolima00\GridView\Actions;
 
 /**
  * Class Delete.
- * @package Itstructure\GridView\Actions
+ * @package Lucianolima00\GridView\Actions
  */
 class Delete extends BaseAction
 {

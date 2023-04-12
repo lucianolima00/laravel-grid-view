@@ -1,13 +1,13 @@
 <?php
 
-namespace Itstructure\GridView\Helpers;
+namespace Lucianolima00\GridView\Helpers;
 
 use Illuminate\Http\Request;
 use Illuminate\Pagination\AbstractPaginator as Paginator;
 
 /**
  * Class UrlSliderHelper
- * @package Itstructure\GridView\Helpers
+ * @package Lucianolima00\GridView\Helpers
  */
 class UrlSliderHelper
 {

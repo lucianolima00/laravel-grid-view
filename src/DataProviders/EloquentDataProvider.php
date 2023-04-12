@@ -1,16 +1,16 @@
 <?php
 
-namespace Itstructure\GridView\DataProviders;
+namespace Lucianolima00\GridView\DataProviders;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Builder;
-use Itstructure\GridView\Grid;
-use Itstructure\GridView\Helpers\SortHelper;
+use Lucianolima00\GridView\Grid;
+use Lucianolima00\GridView\Helpers\SortHelper;
 
 /**
  * Class EloquentDataProvider.
- * @package Itstructure\GridView\DataProviders
+ * @package Lucianolima00\GridView\DataProviders
  */
 class EloquentDataProvider extends BaseDataProvider
 {

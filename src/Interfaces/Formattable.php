@@ -1,10 +1,10 @@
 <?php
 
-namespace Itstructure\GridView\Interfaces;
+namespace Lucianolima00\GridView\Interfaces;
 
 /**
  * Interface Formattable
- * @package Itstructure\GridView\Interfaces
+ * @package Lucianolima00\GridView\Interfaces
  */
 interface Formattable
 {

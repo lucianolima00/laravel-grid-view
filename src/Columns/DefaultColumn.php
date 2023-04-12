@@ -1,10 +1,10 @@
 <?php
 
-namespace Itstructure\GridView\Columns;
+namespace Lucianolima00\GridView\Columns;
 
 /**
  * Class DefaultColumn
- * @package Itstructure\GridView\Columns
+ * @package Lucianolima00\GridView\Columns
  */
 class DefaultColumn extends BaseColumn
 {

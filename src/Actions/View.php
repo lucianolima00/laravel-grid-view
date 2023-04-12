@@ -1,10 +1,10 @@
 <?php
 
-namespace Itstructure\GridView\Actions;
+namespace Lucianolima00\GridView\Actions;
 
 /**
  * Class View.
- * @package Itstructure\GridView\Actions
+ * @package Lucianolima00\GridView\Actions
  */
 class View extends BaseAction
 {

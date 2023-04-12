@@ -1,14 +1,14 @@
 <?php
 
-namespace Itstructure\GridView;
+namespace Lucianolima00\GridView;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
-use Itstructure\GridView\Commands\PublishCommand;
+use Lucianolima00\GridView\Commands\PublishCommand;
 
 /**
  * Class GridViewServiceProvider
- * @package Itstructure\GridView
+ * @package Lucianolima00\GridView
  */
 class GridViewServiceProvider extends ServiceProvider
 {
