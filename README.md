@@ -1,17 +1,17 @@
 # Laravel Grid View
 
-[![Latest Stable Version](https://poser.pugx.org/itstructure/laravel-grid-view/v/stable)](https://packagist.org/packages/itstructure/laravel-grid-view)
-[![Latest Unstable Version](https://poser.pugx.org/itstructure/laravel-grid-view/v/unstable)](https://packagist.org/packages/itstructure/laravel-grid-view)
-[![License](https://poser.pugx.org/itstructure/laravel-grid-view/license)](https://packagist.org/packages/itstructure/laravel-grid-view)
-[![Total Downloads](https://poser.pugx.org/itstructure/laravel-grid-view/downloads)](https://packagist.org/packages/itstructure/laravel-grid-view)
-[![Build Status](https://scrutinizer-ci.com/g/itstructure/laravel-grid-view/badges/build.png?b=master)](https://scrutinizer-ci.com/g/itstructure/laravel-grid-view/build-status/master)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/itstructure/laravel-grid-view/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/itstructure/laravel-grid-view/?branch=master)
+[![Latest Stable Version](https://poser.pugx.org/lucianolima00/laravel-grid-view/v/stable)](https://packagist.org/packages/lucianolima00/laravel-grid-view)
+[![Latest Unstable Version](https://poser.pugx.org/lucianolima00/laravel-grid-view/v/unstable)](https://packagist.org/packages/lucianolima00/laravel-grid-view)
+[![License](https://poser.pugx.org/lucianolima00/laravel-grid-view/license)](https://packagist.org/packages/lucianolima00/laravel-grid-view)
+[![Total Downloads](https://poser.pugx.org/lucianolima00/laravel-grid-view/downloads)](https://packagist.org/packages/lucianolima00/laravel-grid-view)
+[![Build Status](https://scrutinizer-ci.com/g/lucianolima00/laravel-grid-view/badges/build.png?b=master)](https://scrutinizer-ci.com/g/lucianolima00/laravel-grid-view/build-status/master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/lucianolima00/laravel-grid-view/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/lucianolima00/laravel-grid-view/?branch=master)
 
 ## Introduction
 
 This package is to displaying the model data in a Grid table.
 
-![Grid view appearance](https://github.com/itstructure/laravel-grid-view/blob/master/laravel_grid_view_appearance_en.png)
+![Grid view appearance](https://github.com/lucianolima00/laravel-grid-view/blob/master/laravel_grid_view_appearance_en.png)
 
 ## Requirements
 - laravel 5.5+ | 6+ | 7+ | 8+ | 9+ | 10+
@@ -26,7 +26,7 @@ This package is to displaying the model data in a Grid table.
 
 Run the composer command:
 
-`composer require itstructure/laravel-grid-view "~1.0.12"`
+`composer require lucianolima00/laravel-grid-view "~1.0.12"`
 
 ### If you are testing this package from a local server directory
 
@@ -50,14 +50,14 @@ Here,
 
 Then run command:
 
-`composer require itstructure/laravel-grid-view:dev-master --prefer-source`
+`composer require lucianolima00/laravel-grid-view:dev-master --prefer-source`
 
 ### Registration
 
 Register service provider in **config/app.php**
 
 ```php
-Itstructure\GridView\GridViewServiceProvider::class,       
+Lucianolima00\GridView\GridViewServiceProvider::class,       
 ```
 
 ### Publish files (Not necessary)
@@ -95,7 +95,7 @@ Example:
 ```php
 namespace App\Http\Controllers;
 
-use Itstructure\GridView\DataProviders\EloquentDataProvider;
+use Lucianolima00\GridView\DataProviders\EloquentDataProvider;
 ```
 
 ```php
@@ -191,7 +191,7 @@ Besides main columns, there can be the next special columns:
 
 - `ActionColumn` - is for displaying Buttons to **view**, **edit** and **delete** rows. 
 
-    Set `'class' => Itstructure\GridView\Columns\ActionColumn::class` in column option
+    Set `'class' => Lucianolima00\GridView\Columns\ActionColumn::class` in column option
     
     There are the next required `actionTypes`:
     - **view** - makes a link for viewing. Default url scheme: `url()->current()  . '/' . $row->id . '/delete'`.
@@ -212,14 +212,14 @@ Besides main columns, there can be the next special columns:
         'columnFields' => [
             [
                 'label' => 'Actions', // Optional
-                'class' => Itstructure\GridView\Columns\ActionColumn::class, // Required
+                'class' => Lucianolima00\GridView\Columns\ActionColumn::class, // Required
                 'actionTypes' => [ // Required
                     'view',
                     'edit' => function ($data) {
                         return '/admin/pages/' . $data->id . '/edit';
                     },
                     [
-                        'class' => Itstructure\GridView\Actions\Delete::class, // Required
+                        'class' => Lucianolima00\GridView\Actions\Delete::class, // Required
                         'url' => function ($data) { // Optional
                             return '/admin/pages/' . $data->id . '/delete';
                         },
@@ -237,7 +237,7 @@ Besides main columns, there can be the next special columns:
 
 - `CheckboxColumn` - is for displaying Checkboxes to multiple choose the rows.
 
-    Set `'class' => Itstructure\GridView\Columns\CheckboxColumn::class` in column option
+    Set `'class' => Lucianolima00\GridView\Columns\CheckboxColumn::class` in column option
     
     There are the next required options:
     - **field** - is for a `name` checkbox input attribute. It is rendered as an array `name="{{ $field }}[]"`.
@@ -250,7 +250,7 @@ Besides main columns, there can be the next special columns:
         'dataProvider' => $dataProvider,
         'columnFields' => [
             [
-                'class' => Itstructure\GridView\Columns\CheckboxColumn::class,
+                'class' => Lucianolima00\GridView\Columns\CheckboxColumn::class,
                 'field' => 'delete',
                 'attribute' => 'id'
             ]
@@ -281,7 +281,7 @@ There are the next filter's variants:
             [
                 'attribute' => 'example_attribute',
                 'filter' => [
-                    'class' => Itstructure\GridView\Filters\DropdownFilter::class,
+                    'class' => Lucianolima00\GridView\Filters\DropdownFilter::class,
                     'data' => ['key' => 'value', 'key' => 'value'] // Array keys are for html <option> tag values, array values are for titles.
                 ]
             ]
@@ -297,7 +297,7 @@ There are the next filter's variants:
         'columnFields' => [
             [
                 'filter' => [
-                    'class' => Itstructure\GridView\Filters\DropdownFilter::class,
+                    'class' => Lucianolima00\GridView\Filters\DropdownFilter::class,
                     'name' => 'example_name',
                     'data' => ['key' => 'value', 'key' => 'value'] // Array keys are for html <option> tag values, array values are for titles.
                 ]
@@ -331,7 +331,7 @@ Also you can set formatter with some addition options. See the next simple examp
         [
             'attribute' => 'url',
             'format' => [
-                'class' => Itstructure\GridView\Formatters\UrlFormatter::class,
+                'class' => Lucianolima00\GridView\Formatters\UrlFormatter::class,
                 'title' => 'Source',
                 'htmlAttributes' => [
                     'target' => '_blank'
@@ -348,7 +348,7 @@ Also you can set formatter with some addition options. See the next simple examp
 
 ##### Existing form areas and main buttons
 
-![Grid view forms](https://github.com/itstructure/laravel-grid-view/blob/master/laravel_grid_view_forms_en.png)
+![Grid view forms](https://github.com/lucianolima00/laravel-grid-view/blob/master/laravel_grid_view_forms_en.png)
 
 There are two main form areas:
 
@@ -403,7 +403,7 @@ $gridData = [
                 return '<span class="icon fas '.($row->active == 1 ? 'fa-check' : 'fa-times').'"></span>';
             },
             'filter' => [ // For dropdown it is necessary to set 'data' array. Array keys are for html <option> tag values, array values are for titles.
-                'class' => Itstructure\GridView\Filters\DropdownFilter::class, // REQUIRED. For this case it is necessary to set 'class'.
+                'class' => Lucianolima00\GridView\Filters\DropdownFilter::class, // REQUIRED. For this case it is necessary to set 'class'.
                 'name' => 'active', // REQUIRED if 'attribute' is not defined for column.
                 'data' => [ // REQUIRED.
                     0 => 'No active',
@@ -420,7 +420,7 @@ $gridData = [
             },
             'filter' => false, // If false, then column will be without a search filter form field.
             'format' => [ // Set special formatter. If $row->icon value is a url to image, it will be inserted in to 'src' attribute of <img> tag.
-                'class' => Itstructure\GridView\Formatters\ImageFormatter::class, // REQUIRED. For this case it is necessary to set 'class'.
+                'class' => Lucianolima00\GridView\Formatters\ImageFormatter::class, // REQUIRED. For this case it is necessary to set 'class'.
                 'htmlAttributes' => [ // Html attributes for <img> tag.
                     'width' => '100'
                 ]
@@ -428,14 +428,14 @@ $gridData = [
         ],
         'created_at', // Simple column setting by string.
         [ // Set Action Buttons.
-            'class' => Itstructure\GridView\Columns\ActionColumn::class, // REQUIRED.
+            'class' => Lucianolima00\GridView\Columns\ActionColumn::class, // REQUIRED.
             'actionTypes' => [ // REQUIRED.
                 'view',
                 'edit' => function ($data) {
                     return '/admin/pages/' . $data->id . '/edit';
                 },
                 [
-                    'class' => Itstructure\GridView\Actions\Delete::class, // REQUIRED
+                    'class' => Lucianolima00\GridView\Actions\Delete::class, // REQUIRED
                     'url' => function ($data) {
                         return '/admin/pages/' . $data->id . '/delete';
                     },
@@ -449,7 +449,7 @@ $gridData = [
         ],
         [
             // For this case checkboxes will be rendered according with: <input type="checkbox" name="delete[]" value="{{ $row->id }}" />
-            'class' => Itstructure\GridView\Columns\CheckboxColumn::class, // REQUIRED.
+            'class' => Lucianolima00\GridView\Columns\CheckboxColumn::class, // REQUIRED.
             'field' => 'delete', // REQUIRED.
             'attribute' => 'id' // REQUIRED.
             'display' => function ($row) {
