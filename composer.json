@@ -1,5 +1,5 @@
 {
-    "name": "itstructure/laravel-grid-view",
+    "name": "lucianolima00/laravel-grid-view",
     "description": "Grid view for laravel framework",
     "type": "library",
     "keywords": ["laravel", "grid", "gridview", "view", "table"],
@@ -10,6 +10,10 @@
         {
             "name": "Andrey Girnik",
             "email": "girnikandrey@gmail.com"
+        },
+        {
+            "name": "Luciano Lima",
+            "email": "l.lima00@outlook.com"
         }
     ],
     "require": {
@@ -24,7 +28,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Itstructure\\GridView\\GridViewServiceProvider"
+                "LucianoLima00\\GridView\\GridViewServiceProvider"
             ]
         }
     },
