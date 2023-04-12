@@ -29,6 +29,11 @@ class Grid
     /**
      * @var bool
      */
+    protected $countColumn = true;
+
+    /**
+     * @var bool
+     */
     protected $useFilters = true;
 
     /**
@@ -104,7 +109,27 @@ class Grid
     /**
      * @var string
      */
+    protected $searchButtonClass;
+
+    /**
+     * @var string
+     */
+    protected $searchButtonStyle;
+
+    /**
+     * @var string
+     */
     protected $resetButtonLabel;
+
+    /**
+     * @var string
+     */
+    protected $resetButtonClass;
+
+    /**
+     * @var string
+     */
+    protected $resetButtonStyle;
 
     /**
      * @var bool
@@ -170,7 +195,11 @@ class Grid
             'filtersFormAction' => $this->filtersFormAction,
             'useSendButtonAnyway' => $this->useSendButtonAnyway,
             'searchButtonLabel' => $this->getSearchButtonLabel(),
+            'searchButtonLabel' => $this->getSearchButtonClass(),
+            'searchButtonLabel' => $this->getSearchButtonStyle(),
             'resetButtonLabel' => $this->getResetButtonLabel(),
+            'resetButtonLabel' => $this->getResetButtonClass(),
+            'resetButtonLabel' => $this->getResetButtonStyle(),
             'sendButtonLabel' => $this->getSendButtonLabel(),
             'tableBordered' => $this->tableBordered,
             'tableStriped' => $this->tableStriped,
@@ -228,9 +257,41 @@ class Grid
     /**
      * @return string
      */
+    protected function getSearchButtonClass(): string
+    {
+        return $this->searchButtonClass ?? trans('grid_view::grid.search');
+    }
+
+    /**
+     * @return string
+     */
+    protected function getSearchButtonStyle(): string
+    {
+        return $this->searchButtonStyle ?? trans('grid_view::grid.search');
+    }
+
+    /**
+     * @return string
+     */
     protected function getResetButtonLabel(): string
     {
         return $this->resetButtonLabel ?? trans('grid_view::grid.reset');
+    }
+
+    /**
+     * @return string
+     */
+    protected function getResetButtonClass(): string
+    {
+        return $this->resetButtonClass ?? trans('grid_view::grid.reset');
+    }
+
+    /**
+     * @return string
+     */
+    protected function getResetButtonStyle(): string
+    {
+        return $this->resetButtonStyle ?? trans('grid_view::grid.reset');
     }
 
     /**

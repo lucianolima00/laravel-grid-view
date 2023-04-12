@@ -39,6 +39,7 @@
     <div class="card-body">
         <table class="table @if($tableBordered) table-bordered @endif @if($tableStriped) table-striped @endif @if($tableHover) table-hover @endif @if($tableSmall) table-sm @endif">
             <thead>
+                @if ($countColumn)
                 <tr>
                     <th width="5%">#</th>
                     @foreach($columnObjects as $column_obj)
@@ -62,6 +63,7 @@
                         </th>
                     @endforeach
                 </tr>
+                @endif
                 @if ($useFilters)
                     <tr>
                         <form action="{{ $filtersFormAction }}" method="get" id="grid_view_filters_form">
@@ -85,7 +87,9 @@
                 <tbody>
                     @foreach($paginator->items() as $key => $row)
                         <tr>
-                            <td>{{ ($paginator->currentPage() - 1) * $paginator->perPage() + $key + 1 }}</td>
+                            @if ($countColumn)
+                                <td>{{ ($paginator->currentPage() - 1) * $paginator->perPage() + $key + 1 }}</td>
+                            @endif
                             @foreach($columnObjects as $column_obj)
                                 <td>{!! $column_obj->render($row) !!}</td>
                             @endforeach
@@ -103,8 +107,8 @@
                                     </div>
                                     <div class="col-12 col-xl-4 text-center text-xl-right">
                                         @if ($useFilters)
-                                            <button id="grid_view_search_button" type="button" class="btn btn-primary">{{ $searchButtonLabel }}</button>
-                                            <button id="grid_view_reset_button" type="button" class="btn btn-warning">{{ $resetButtonLabel }}</button>
+                                            <button id="grid_view_search_button" type="button" class="btn btn-primary {{ $searchButtonClass }}" style="{{ $searchButtonStyle }}">{{ $searchButtonLabel }}</button>
+                                            <button id="grid_view_reset_button" type="button" class="btn btn-warning {{ $resetButtonClass }}" style="{{ $resetButtonStyle }}">{{ $resetButtonLabel }}</button>
                                         @endif
                                         @if (($checkboxesExist || $useSendButtonAnyway) && $paginator->count() > 0)
                                             <button type="submit" class="btn btn-danger">{{ $sendButtonLabel }}</button>

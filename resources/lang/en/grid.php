@@ -1,6 +1,6 @@
 <?php
 return [
-    'page-info' => 'Showing :start to :end of :total entries',
+    'page-info' => 'Showing :start-:end of :total entries',
     'select' => 'Select',
     'actions' => 'Actions',
     'delete' => 'Delete',
