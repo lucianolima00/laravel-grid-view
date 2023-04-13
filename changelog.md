@@ -1,5 +1,8 @@
 ### CHANGE LOG:
 
+**1.0.14 April 12, 2023:**
+- Layout fix and customizations
+
 **1.0.13 April 12, 2023:**
 - BUG: countColumn undefined
 
