@@ -260,7 +260,7 @@ class Grid
      */
     protected function getSearchButtonClass(): string
     {
-        return $this->searchButtonClass ?? trans('grid_view::grid.search');
+        return $this->searchButtonClass ?? 'ml-3';
     }
 
     /**
@@ -268,7 +268,7 @@ class Grid
      */
     protected function getSearchButtonStyle(): string
     {
-        return $this->searchButtonStyle ?? trans('grid_view::grid.search');
+        return $this->searchButtonStyle;
     }
 
     /**
@@ -284,7 +284,7 @@ class Grid
      */
     protected function getResetButtonClass(): string
     {
-        return $this->resetButtonClass ?? trans('grid_view::grid.reset');
+        return $this->resetButtonClass ?? 'ml-3';
     }
 
     /**
@@ -292,7 +292,7 @@ class Grid
      */
     protected function getResetButtonStyle(): string
     {
-        return $this->resetButtonStyle ?? trans('grid_view::grid.reset');
+        return $this->resetButtonStyle;
     }
 
     /**

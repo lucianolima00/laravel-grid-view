@@ -90,10 +90,10 @@
                     @foreach($paginator->items() as $key => $row)
                         <tr>
                             @if ($countColumn)
-                                <td>{{ ($paginator->currentPage() - 1) * $paginator->perPage() + $key + 1 }}</td>
+                                <td class="align-middle px-2">{{ ($paginator->currentPage() - 1) * $paginator->perPage() + $key + 1 }}</td>
                             @endif
                             @foreach($columnObjects as $column_obj)
-                                <td>{!! $column_obj->render($row) !!}</td>
+                                <td class="align-middle px-2">{!! $column_obj->render($row) !!}</td>
                             @endforeach
                         </tr>
                     @endforeach
@@ -107,7 +107,7 @@
                                     <div class="col-12 col-xl-8 text-center text-xl-left">
                                         {{ $paginator->render('grid_view::pagination') }}
                                     </div>
-                                    <div class="col-12 col-xl-4 text-center text-xl-right">
+                                    <div class="col-12 col-xl-4 text-center text-xl-right d-flex px-1 justify-content-end">
                                         @if ($useFilters)
                                             <button id="grid_view_search_button" type="button" class="btn btn-primary {{ $searchButtonClass }}" style="{{ $searchButtonStyle }}">{{ $searchButtonLabel }}</button>
                                             <button id="grid_view_reset_button" type="button" class="btn btn-warning {{ $resetButtonClass }}" style="{{ $resetButtonStyle }}">{{ $resetButtonLabel }}</button>
@@ -139,6 +139,7 @@
         $('#grid_view_reset_button').click(function () {
             $('input[role="grid-view-filter-item"]').val('');
             $('select[role="grid-view-filter-item"]').prop('selectedIndex', 0);
+            $('#grid_view_filters_form').submit();
         });
     });
 </script>
