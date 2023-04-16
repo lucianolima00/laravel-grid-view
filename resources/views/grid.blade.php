@@ -36,7 +36,7 @@
             @endif
         </div>
     </div>
-    <div class="card-body">
+    <div class="card-body" style="overflow-x: scroll;">
         <table class="table @if($tableBordered) table-bordered @endif @if($tableStriped) table-striped @endif @if($tableHover) table-hover @endif @if($tableSmall) table-sm @endif">
             <thead>
                 <tr>

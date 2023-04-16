@@ -23,6 +23,11 @@ abstract class BaseFilter
     protected $value;
 
     /**
+     * @var string
+     */
+    protected $cssClass;
+
+    /**
      * @var mixed
      */
     protected $data = [];
@@ -69,5 +74,13 @@ abstract class BaseFilter
     protected function getData()
     {
         return $this->data;
+    }
+
+    /**
+     * @return mixed
+     */
+    protected function getCssClass()
+    {
+        return $this->cssClass ?? 'border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm';
     }
 }

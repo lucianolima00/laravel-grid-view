@@ -16,6 +16,7 @@ class TextFilter extends BaseFilter
         return view('grid_view::filters.text', [
             'name' => $this->getName(),
             'value' => $this->getValue(),
+            'class' => $this->getCssClass(),
         ]);
     }
 }

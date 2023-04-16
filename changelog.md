@@ -1,5 +1,9 @@
 ### CHANGE LOG:
 
+**1.0.15 April 16, 2023:**
+- Action column row with nowrap
+- Custom class for filters
+
 **1.0.14 April 12, 2023:**
 - Layout fix and customizations
 

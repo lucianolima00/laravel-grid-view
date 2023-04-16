@@ -99,7 +99,7 @@ class ActionColumn extends BaseColumn
             $value .= $actionObj->render($row, $bootstrapColWidth);
         }
 
-        return '<div class="row">' . $value . '</div>';
+        return '<div class="row" style="flex-flow: nowrap">' . $value . '</div>';
     }
 
     /**

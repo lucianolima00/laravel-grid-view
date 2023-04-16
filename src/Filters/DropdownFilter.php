@@ -16,7 +16,8 @@ class DropdownFilter extends BaseFilter
         return view('grid_view::filters.dropdown', [
             'name' => $this->getName(),
             'value' => $this->getValue(),
-            'data' => $this->getData()
+            'data' => $this->getData(),
+            'class' => $this->getCssClass(),
         ]);
     }
 }
