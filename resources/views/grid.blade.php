@@ -90,10 +90,10 @@
                     @foreach($paginator->items() as $key => $row)
                         <tr>
                             @if ($countColumn)
-                                <td class="align-middle px-2">{{ ($paginator->currentPage() - 1) * $paginator->perPage() + $key + 1 }}</td>
+                                <td class="align-middle px-2 text-nowrap">{{ ($paginator->currentPage() - 1) * $paginator->perPage() + $key + 1 }}</td>
                             @endif
                             @foreach($columnObjects as $column_obj)
-                                <td class="align-middle px-2">{!! $column_obj->render($row) !!}</td>
+                                <td class="align-middle px-2 text-nowrap">{!! $column_obj->render($row) !!}</td>
                             @endforeach
                         </tr>
                     @endforeach

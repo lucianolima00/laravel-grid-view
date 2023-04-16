@@ -1,5 +1,8 @@
 ### CHANGE LOG:
 
+**1.0.17 April 16, 2023:**
+- Add text-nowrap class to columns
+
 **1.0.16 April 16, 2023:**
 - Action column empty spaces
 
