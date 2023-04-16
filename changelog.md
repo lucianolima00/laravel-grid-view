@@ -1,5 +1,8 @@
 ### CHANGE LOG:
 
+**1.0.16 April 16, 2023:**
+- Action column empty spaces
+
 **1.0.15 April 16, 2023:**
 - Action column row with nowrap
 - Custom class for filters
