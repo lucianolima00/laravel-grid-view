@@ -11,29 +11,36 @@
 </style>
 <div class="card">
     <div class="card-header">
-        @if($title)
-            <h2 class="card-title">{!! $title !!}</h2>
-        @endif
-        <div class="float-right">
-            @if ($paginator->onFirstPage())
-                {!! trans('grid_view::grid.page-info', [
-                    'start' => '<b>1</b>',
-                    'end' => '<b>' . $paginator->perPage() . '</b>',
-                    'total' => '<b>' . $paginator->total() . '</b>',
-                ]) !!}
-            @elseif ($paginator->currentPage() == $paginator->lastPage())
-                {!! trans('grid_view::grid.page-info', [
-                    'start' => '<b>' . (($paginator->currentPage() - 1) * $paginator->perPage() + 1) . '</b>',
-                    'end' => '<b>' . $paginator->total() . '</b>',
-                    'total' => '<b>' . $paginator->total() . '</b>',
-                ]) !!}
-            @else
-                {!! trans('grid_view::grid.page-info', [
-                    'start' => '<b>' . (($paginator->currentPage() - 1) * $paginator->perPage() + 1) . '</b>',
-                    'end' => '<b>' . (($paginator->currentPage()) * $paginator->perPage()) . '</b>',
-                    'total' => '<b>' . $paginator->total() . '</b>',
-                ]) !!}
-            @endif
+        <div class="row">
+            <div class="col-6 d-flex align-items-center">
+                <span>
+                @if ($paginator->onFirstPage())
+                    {!! trans('grid_view::grid.page-info', [
+                        'start' => '<b>1</b>',
+                        'end' => '<b>' . $paginator->perPage() . '</b>',
+                        'total' => '<b>' . $paginator->total() . '</b>',
+                    ]) !!}
+                @elseif ($paginator->currentPage() == $paginator->lastPage())
+                    {!! trans('grid_view::grid.page-info', [
+                        'start' => '<b>' . (($paginator->currentPage() - 1) * $paginator->perPage() + 1) . '</b>',
+                        'end' => '<b>' . $paginator->total() . '</b>',
+                        'total' => '<b>' . $paginator->total() . '</b>',
+                    ]) !!}
+                @else
+                    {!! trans('grid_view::grid.page-info', [
+                        'start' => '<b>' . (($paginator->currentPage() - 1) * $paginator->perPage() + 1) . '</b>',
+                        'end' => '<b>' . (($paginator->currentPage()) * $paginator->perPage()) . '</b>',
+                        'total' => '<b>' . $paginator->total() . '</b>',
+                    ]) !!}
+                @endif
+                </span>
+            </div>
+            <div class="col-6 d-flex justify-content-end">
+                @if ($useFilters)
+                    <button id="grid_view_search_button" type="button" class="btn btn-primary {{ $searchButtonClass }}" style="{{ $searchButtonStyle }}">{{ $searchButtonLabel }}</button>
+                    <button id="grid_view_reset_button" type="button" class="btn btn-warning {{ $resetButtonClass }}" style="{{ $resetButtonStyle }}">{{ $resetButtonLabel }}</button>
+                @endif
+            </div>
         </div>
     </div>
     <div class="card-body" style="overflow-x: scroll;">
@@ -108,10 +115,6 @@
                                     {{ $paginator->render('grid_view::pagination') }}
                                 </div>
                                 <div class="col-12 col-xl-4 text-center text-xl-right d-flex px-1 justify-content-end">
-                                    @if ($useFilters)
-                                        <button id="grid_view_search_button" type="button" class="btn btn-primary {{ $searchButtonClass }}" style="{{ $searchButtonStyle }}">{{ $searchButtonLabel }}</button>
-                                        <button id="grid_view_reset_button" type="button" class="btn btn-warning {{ $resetButtonClass }}" style="{{ $resetButtonStyle }}">{{ $resetButtonLabel }}</button>
-                                    @endif
                                     @if (($checkboxesExist || $useSendButtonAnyway) && $paginator->count() > 0)
                                         <button type="submit" class="btn btn-danger">{{ $sendButtonLabel }}</button>
                                     @endif
