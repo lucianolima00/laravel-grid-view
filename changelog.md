@@ -1,5 +1,8 @@
 ### CHANGE LOG:
 
+**1.0.19 April 17, 2023:**
+- Filter buttons on top
+
 **1.0.18 April 16, 2023:**
 - Add custom class to columns
 
