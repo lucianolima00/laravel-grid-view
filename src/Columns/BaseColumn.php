@@ -60,6 +60,11 @@ abstract class BaseColumn
     protected $format;
 
     /**
+     * @var string $class
+     */
+    protected $class;
+
+    /**
      * BaseColumn constructor.
      * @param array $config
      */
@@ -198,5 +203,13 @@ abstract class BaseColumn
         } else if (!is_object($this->format) || !($this->format instanceof Formattable)) {
             throw new Exception('Incorrect formatter.');
         }
+    }
+
+    /**
+     * @return string
+     */
+    public function getClass()
+    {
+        return $this->class;
     }
 }

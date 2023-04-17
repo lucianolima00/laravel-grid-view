@@ -39,87 +39,87 @@
     <div class="card-body" style="overflow-x: scroll;">
         <table class="table @if($tableBordered) table-bordered @endif @if($tableStriped) table-striped @endif @if($tableHover) table-hover @endif @if($tableSmall) table-sm @endif">
             <thead>
-                <tr>
-                    @if ($countColumn)
+            <tr>
+                @if ($countColumn)
                     <th width="5%">#</th>
-                    @endif
-                    @foreach($columnObjects as $column_obj)
-                        <th {!! $column_obj->buildHtmlAttributes() !!}>
-
-                            @if($column_obj->getSort() === false || $column_obj instanceof \Lucianolima00\GridView\Columns\ActionColumn)
-                                {{ $column_obj->getLabel() }}
-
-                            @elseif($column_obj instanceof \Lucianolima00\GridView\Columns\CheckboxColumn)
-                                @php($checkboxesExist = true)
-                                @if($useFilters)
-                                    {{ $column_obj->getLabel() }}
-                                @else
-                                    <input type="checkbox" id="grid_view_checkbox_main" class="form-control form-control-sm" @if($paginator->count() == 0) disabled="disabled" @endif />
-                                @endif
-
-                            @else
-                                <a href="{{ \Lucianolima00\GridView\Helpers\SortHelper::getSortableLink(request(), $column_obj) }}">{{ $column_obj->getLabel() }}</a>
-                            @endif
-
-                        </th>
-                    @endforeach
-                </tr>
-                @if ($useFilters)
-                    <tr>
-                        <form action="{{ $filtersFormAction }}" method="get" id="grid_view_filters_form">
-                            @if ($countColumn)
-                            <td></td>
-                            @endif
-                            @foreach($columnObjects as $column_obj)
-                                <td>
-                                    @if($column_obj instanceof \Lucianolima00\GridView\Columns\CheckboxColumn)
-                                        <input type="checkbox" id="grid_view_checkbox_main" class="form-control form-control-sm" @if($paginator->count() == 0) disabled="disabled" @endif />
-                                    @else
-                                        {!! $column_obj->getFilter()->render() !!}
-                                    @endif
-                                </td>
-                            @endforeach
-                            <input type="submit" class="d-none">
-                        </form>
-                    </tr>
                 @endif
+                @foreach($columnObjects as $column_obj)
+                    <th {!! $column_obj->buildHtmlAttributes() !!}>
+
+                        @if($column_obj->getSort() === false || $column_obj instanceof \Lucianolima00\GridView\Columns\ActionColumn)
+                            {{ $column_obj->getLabel() }}
+
+                        @elseif($column_obj instanceof \Lucianolima00\GridView\Columns\CheckboxColumn)
+                            @php($checkboxesExist = true)
+                            @if($useFilters)
+                                {{ $column_obj->getLabel() }}
+                            @else
+                                <input type="checkbox" id="grid_view_checkbox_main" class="form-control form-control-sm" @if($paginator->count() == 0) disabled="disabled" @endif />
+                            @endif
+
+                        @else
+                            <a class="text-nowrap" href="{{ \Lucianolima00\GridView\Helpers\SortHelper::getSortableLink(request(), $column_obj) }}">{{ $column_obj->getLabel() }}</a>
+                        @endif
+
+                    </th>
+                @endforeach
+            </tr>
+            @if ($useFilters)
+                <tr>
+                    <form action="{{ $filtersFormAction }}" method="get" id="grid_view_filters_form">
+                        @if ($countColumn)
+                            <td></td>
+                        @endif
+                        @foreach($columnObjects as $column_obj)
+                            <td>
+                                @if($column_obj instanceof \Lucianolima00\GridView\Columns\CheckboxColumn)
+                                    <input type="checkbox" id="grid_view_checkbox_main" class="form-control form-control-sm" @if($paginator->count() == 0) disabled="disabled" @endif />
+                                @else
+                                    {!! $column_obj->getFilter()->render() !!}
+                                @endif
+                            </td>
+                        @endforeach
+                        <input type="submit" class="d-none">
+                    </form>
+                </tr>
+            @endif
             </thead>
 
             <form action="{{ $rowsFormAction }}" method="post" id="grid_view_rows_form">
                 <tbody>
-                    @foreach($paginator->items() as $key => $row)
-                        <tr>
-                            @if ($countColumn)
-                                <td class="align-middle px-2 text-nowrap">{{ ($paginator->currentPage() - 1) * $paginator->perPage() + $key + 1 }}</td>
-                            @endif
-                            @foreach($columnObjects as $column_obj)
-                                <td class="align-middle px-2 text-nowrap">{!! $column_obj->render($row) !!}</td>
-                            @endforeach
-                        </tr>
-                    @endforeach
+                @foreach($paginator->items() as $key => $row)
+                    <tr>
+                        @if ($countColumn)
+                            <td class="align-middle px-2 text-nowrap">{{ ($paginator->currentPage() - 1) * $paginator->perPage() + $key + 1 }}</td>
+                        @endif
+                        @foreach($columnObjects as $column_obj)
+                            <td class="px-2 {{ $column_obj->getClass() }}">{!! $column_obj->render($row) !!}</td>
+                        @endforeach
+                    </tr>
+                @endforeach
                 </tbody>
 
                 <tfoot>
-                    <tr>
-                        <td colspan="{{ count($columnObjects) + 1 }}">
-                            <div class="mx-1">
-                                <div class="row">
-                                    <div class="col-12 col-xl-8 text-center text-xl-left">
-                                        {{ $paginator->render('grid_view::pagination') }}
-                                    </div>
-                                    <div class="col-12 col-xl-4 text-center text-xl-right d-flex px-1 justify-content-end">
-                                        @if ($useFilters)
-                                            <button id="grid_view_search_button" type="button" class="btn btn-primary {{ $searchButtonClass }}" style="{{ $searchButtonStyle }}">{{ $searchButtonLabel }}</button>
-                                            <button id="grid_view_reset_button" type="button" class="btn btn-warning {{ $resetButtonClass }}" style="{{ $resetButtonStyle }}">{{ $resetButtonLabel }}</button>
-                                        @endif
-                                        @if (($checkboxesExist || $useSendButtonAnyway) && $paginator->count() > 0)
-                                            <button type="submit" class="btn btn-danger">{{ $sendButtonLabel }}</button>
-                                        @endif
-                                    </div>
+                <tr>
+                    <td colspan="{{ count($columnObjects) + 1 }}">
+                        <div class="mx-1">
+                            <div class="row">
+                                <div class="col-12 col-xl-8 text-center text-xl-left">
+                                    {{ $paginator->render('grid_view::pagination') }}
+                                </div>
+                                <div class="col-12 col-xl-4 text-center text-xl-right d-flex px-1 justify-content-end">
+                                    @if ($useFilters)
+                                        <button id="grid_view_search_button" type="button" class="btn btn-primary {{ $searchButtonClass }}" style="{{ $searchButtonStyle }}">{{ $searchButtonLabel }}</button>
+                                        <button id="grid_view_reset_button" type="button" class="btn btn-warning {{ $resetButtonClass }}" style="{{ $resetButtonStyle }}">{{ $resetButtonLabel }}</button>
+                                    @endif
+                                    @if (($checkboxesExist || $useSendButtonAnyway) && $paginator->count() > 0)
+                                        <button type="submit" class="btn btn-danger">{{ $sendButtonLabel }}</button>
+                                    @endif
                                 </div>
                             </div>
-                        </td>
-                    </tr>
+                        </div>
+                    </td>
+                </tr>
                 </tfoot>
                 <input type="hidden" value="{!! csrf_token() !!}" name="_token">
             </form>

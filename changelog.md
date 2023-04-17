@@ -1,5 +1,8 @@
 ### CHANGE LOG:
 
+**1.0.18 April 16, 2023:**
+- Add custom class to columns
+
 **1.0.17 April 16, 2023:**
 - Add text-nowrap class to columns
 
