@@ -62,6 +62,11 @@ abstract class BaseColumn
     /**
      * @var string $class
      */
+    protected $classType;
+
+    /**
+     * @var string $class
+     */
     protected $class;
 
     /**
@@ -162,9 +167,9 @@ abstract class BaseColumn
             ]);
 
         } else if (is_array($this->filter)) {
-            if (isset($this->filter['class']) && class_exists($this->filter['class'])) {
+            if (isset($this->filter['classType']) && class_exists($this->filter['classType'])) {
                 $this->setFilter(
-                    new $this->filter['class'](array_merge($this->filter, empty($this->filter['name']) ? [
+                    new $this->filter['classType'](array_merge($this->filter, empty($this->filter['name']) ? [
                             'name' => $this->getAttribute()
                         ] : [])
                     )
@@ -196,8 +201,8 @@ abstract class BaseColumn
             $this->format = new $class;
 
         } else if (is_array($this->format)) {
-            if (isset($this->format['class']) && class_exists($this->format['class'])) {
-                $this->setFormatter(new $this->format['class']($this->format));
+            if (isset($this->format['classType']) && class_exists($this->format['classType'])) {
+                $this->setFormatter(new $this->format['classType']($this->format));
             }
 
         } else if (!is_object($this->format) || !($this->format instanceof Formattable)) {

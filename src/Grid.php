@@ -268,7 +268,7 @@ class Grid
      */
     protected function getSearchButtonStyle(): string
     {
-        return $this->searchButtonStyle;
+        return $this->searchButtonStyle ?? '';
     }
 
     /**
@@ -284,7 +284,7 @@ class Grid
      */
     protected function getResetButtonClass(): string
     {
-        return $this->resetButtonClass ?? 'ml-3';
+        return $this->resetButtonClass ?? 'btn btn-warning ml-3';
     }
 
     /**
@@ -292,7 +292,7 @@ class Grid
      */
     protected function getResetButtonStyle(): string
     {
-        return $this->resetButtonStyle;
+        return $this->resetButtonStyle ?? '';
     }
 
     /**

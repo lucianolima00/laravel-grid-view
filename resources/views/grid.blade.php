@@ -11,36 +11,10 @@
 </style>
 <div class="card">
     <div class="card-header">
-        <div class="row">
-            <div class="col-6 d-flex align-items-center">
-                <span>
-                @if ($paginator->onFirstPage())
-                    {!! trans('grid_view::grid.page-info', [
-                        'start' => '<b>1</b>',
-                        'end' => '<b>' . $paginator->perPage() . '</b>',
-                        'total' => '<b>' . $paginator->total() . '</b>',
-                    ]) !!}
-                @elseif ($paginator->currentPage() == $paginator->lastPage())
-                    {!! trans('grid_view::grid.page-info', [
-                        'start' => '<b>' . (($paginator->currentPage() - 1) * $paginator->perPage() + 1) . '</b>',
-                        'end' => '<b>' . $paginator->total() . '</b>',
-                        'total' => '<b>' . $paginator->total() . '</b>',
-                    ]) !!}
-                @else
-                    {!! trans('grid_view::grid.page-info', [
-                        'start' => '<b>' . (($paginator->currentPage() - 1) * $paginator->perPage() + 1) . '</b>',
-                        'end' => '<b>' . (($paginator->currentPage()) * $paginator->perPage()) . '</b>',
-                        'total' => '<b>' . $paginator->total() . '</b>',
-                    ]) !!}
-                @endif
-                </span>
-            </div>
-            <div class="col-6 d-flex justify-content-end">
-                @if ($useFilters)
-                    <button id="grid_view_search_button" type="button" class="btn btn-primary {{ $searchButtonClass }}" style="{{ $searchButtonStyle }}">{{ $searchButtonLabel }}</button>
-                    <button id="grid_view_reset_button" type="button" class="btn btn-warning {{ $resetButtonClass }}" style="{{ $resetButtonStyle }}">{{ $resetButtonLabel }}</button>
-                @endif
-            </div>
+        <div class="col-6 d-flex justify-content-end ms-auto">
+            @if ($useFilters)
+                <button id="grid_view_reset_button" type="button" class="{{ $resetButtonClass }}" style="{{ $resetButtonStyle }}">{{ $resetButtonLabel }}</button>
+            @endif
         </div>
     </div>
     <div class="card-body" style="overflow-x: scroll;">
@@ -100,7 +74,7 @@
                             <td class="align-middle px-2 text-nowrap">{{ ($paginator->currentPage() - 1) * $paginator->perPage() + $key + 1 }}</td>
                         @endif
                         @foreach($columnObjects as $column_obj)
-                            <td class="px-2 {{ $column_obj->getClass() }}">{!! $column_obj->render($row) !!}</td>
+                            <td class="px-2 {{ $column_obj->getClassName() }}">{!! $column_obj->render($row) !!}</td>
                         @endforeach
                     </tr>
                 @endforeach
@@ -128,15 +102,48 @@
             </form>
         </table>
     </div>
+    <div class="card-footer">
+        <div class="row">
+            <div class="col-6 d-flex align-items-center">
+                <span>
+                @if ($paginator->onFirstPage())
+                        {!! trans('grid_view::grid.page-info', [
+                            'start' => '<b>1</b>',
+                            'end' => '<b>' . $paginator->perPage() . '</b>',
+                            'total' => '<b>' . $paginator->total() . '</b>',
+                        ]) !!}
+                    @elseif ($paginator->currentPage() == $paginator->lastPage())
+                        {!! trans('grid_view::grid.page-info', [
+                            'start' => '<b>' . (($paginator->currentPage() - 1) * $paginator->perPage() + 1) . '</b>',
+                            'end' => '<b>' . $paginator->total() . '</b>',
+                            'total' => '<b>' . $paginator->total() . '</b>',
+                        ]) !!}
+                    @else
+                        {!! trans('grid_view::grid.page-info', [
+                            'start' => '<b>' . (($paginator->currentPage() - 1) * $paginator->perPage() + 1) . '</b>',
+                            'end' => '<b>' . (($paginator->currentPage()) * $paginator->perPage()) . '</b>',
+                            'total' => '<b>' . $paginator->total() . '</b>',
+                        ]) !!}
+                    @endif
+                </span>
+            </div>
+        </div>
+    </div>
 </div>
 <script type="text/javascript">
+    var delayTimer;
+
     document.addEventListener("DOMContentLoaded", function() {
         $('#grid_view_checkbox_main').click(function (event) {
             $('input[role="grid-view-checkbox-item"]').prop('checked', event.target.checked);
         });
 
-        $('#grid_view_search_button').click(function () {
-            $('#grid_view_filters_form').submit();
+        $('.grid-filter-input').on('input', function () {
+            clearTimeout(delayTimer);
+
+            delayTimer = setTimeout(function() {
+                $('#grid_view_filters_form').submit();
+            }, 800);
         });
 
         $('#grid_view_reset_button').click(function () {

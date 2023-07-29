@@ -19,7 +19,9 @@ class View extends BaseAction
     {
         return view('grid_view::actions.'.self::ACTION, [
             'url' => $this->getUrl($row),
+            'className' => $this->getClassName($row),
             'bootstrapColWidth' => $bootstrapColWidth,
+            'icon' => $this->icon,
             'htmlAttributes' => $this->buildHtmlAttributes()
         ])->render();
     }
@@ -31,5 +33,18 @@ class View extends BaseAction
     protected function buildUrl($row)
     {
         return $this->getCurrentUrl() . '/' . $row->id . '/' . self::ACTION;
+    }
+
+    /**
+     * @param $row
+     * @return mixed|string
+     */
+    protected function getClass($row)
+    {
+        if (!is_null($this->className) && is_string($this->className)) {
+            return $this->className;
+        }
+
+        return 'btn btn-success';
     }
 }

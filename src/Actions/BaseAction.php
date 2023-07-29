@@ -23,6 +23,16 @@ abstract class BaseAction
     protected $url;
 
     /**
+     * @var string|null
+     */
+    protected $className;
+
+    /**
+     * @var string|null
+     */
+    protected $icon;
+
+    /**
      * BaseButton constructor.
      * @param array $config
      */
