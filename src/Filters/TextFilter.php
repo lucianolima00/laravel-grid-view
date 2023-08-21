@@ -17,6 +17,7 @@ class TextFilter extends BaseFilter
             'name' => $this->getName(),
             'value' => $this->getValue(),
             'class' => $this->getCssClass(),
+            'style' => $this->getStyle(),
         ]);
     }
 }

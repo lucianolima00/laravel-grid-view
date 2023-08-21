@@ -23,11 +23,11 @@ abstract class BaseColumn
         FORMATTER_URL = 'url',
 
         FORMATTER_DEFINITIONS = [
-            self::FORMATTER_HTML => HtmlFormatter::class,
-            self::FORMATTER_IMAGE => ImageFormatter::class,
-            self::FORMATTER_TEXT => TextFormatter::class,
-            self::FORMATTER_URL => UrlFormatter::class,
-        ];
+        self::FORMATTER_HTML => HtmlFormatter::class,
+        self::FORMATTER_IMAGE => ImageFormatter::class,
+        self::FORMATTER_TEXT => TextFormatter::class,
+        self::FORMATTER_URL => UrlFormatter::class,
+    ];
 
     /**
      * @var string
@@ -58,11 +58,6 @@ abstract class BaseColumn
      * @var string|Formattable
      */
     protected $format;
-
-    /**
-     * @var string $class
-     */
-    protected $classType;
 
     /**
      * @var string $class
@@ -167,10 +162,10 @@ abstract class BaseColumn
             ]);
 
         } else if (is_array($this->filter)) {
-            if (isset($this->filter['classType']) && class_exists($this->filter['classType'])) {
+            if (isset($this->filter['class']) && class_exists($this->filter['class'])) {
                 $this->setFilter(
-                    new $this->filter['classType'](array_merge($this->filter, empty($this->filter['name']) ? [
-                            'name' => $this->getAttribute()
+                    new $this->filter['class'](array_merge($this->filter, empty($this->filter['data']) ? [
+                            'data' => $this->getAttribute()
                         ] : [])
                     )
                 );

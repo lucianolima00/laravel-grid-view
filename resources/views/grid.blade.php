@@ -55,7 +55,7 @@
                             <td>
                                 @if($column_obj instanceof \Lucianolima00\GridView\Columns\CheckboxColumn)
                                     <input type="checkbox" id="grid_view_checkbox_main" class="form-control form-control-sm" @if($paginator->count() == 0) disabled="disabled" @endif />
-                                @else
+                                @elseif(!($column_obj instanceof \Lucianolima00\GridView\Columns\ActionColumn))
                                     {!! $column_obj->getFilter()->render() !!}
                                 @endif
                             </td>
@@ -74,7 +74,7 @@
                             <td class="align-middle px-2 text-nowrap">{{ ($paginator->currentPage() - 1) * $paginator->perPage() + $key + 1 }}</td>
                         @endif
                         @foreach($columnObjects as $column_obj)
-                            <td class="px-2 {{ $column_obj->getClassName() }}">{!! $column_obj->render($row) !!}</td>
+                            <td class="px-3 {{ Arr::get($column_obj->getAttribute(), 'class') }}">{!! $column_obj->render($row) !!}</td>
                         @endforeach
                     </tr>
                 @endforeach
